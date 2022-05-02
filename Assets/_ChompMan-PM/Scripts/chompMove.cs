@@ -4,42 +4,26 @@ using UnityEngine;
 
 public class chompMove : MonoBehaviour
 {
-//    private Player thePlayer;
     private Rigidbody rb;
-    public float speed = 2f;
+    public float speed = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-//        CORE.setPlayer(thePlayer);
         rb = this.gameObject.GetComponent<Rigidbody>();
     }
 
-//    public void display()
-//    {
-//        print("Player Script Display");
-//    }
 
     void OnCollisionEnter(Collision collision)
     {
-        this.speed = 0;
-//        if(collision.gameObject.tag.Equals("enemy"))
-//        {
-//            //Destroy(CORE.getRoom());
-//            count++;
-//            if(count == 3)
-//            {
-//                this.thePlayer.addKill();
-//                print("Kill Count: " + this.thePlayer.getKillCount());
-//            }
-//        }
+        this.speed = 0f;
+        rb.velocity = Vector3.forward * speed;
     }
 
     
     // Update is called once per frame
     void Update()
     {
-        //print(thePlayer.getName());
         if (Input.GetKeyDown("up"))
         {
             rb.velocity = Vector3.forward * speed;
@@ -61,4 +45,5 @@ public class chompMove : MonoBehaviour
             rb.velocity = Vector3.up * speed;
         }
     }
+    //cabbage
 }
