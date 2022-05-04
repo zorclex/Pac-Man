@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - MazeGeo
+  - PowerPellet
+  - LeftTeleport
+  - RightTeleport
   layers:
   - Default
   - TransparentFX
