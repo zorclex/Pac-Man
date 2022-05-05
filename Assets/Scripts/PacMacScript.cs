@@ -42,10 +42,21 @@ public class PacMacScript : MonoBehaviour
 //        print("Chomp trigger");
         if(other.gameObject.tag.Equals("PowerPellet"))
         {
-            print("chomp - pellet");
+//            print("chomp - pellet");
             this.statusTextMesh.text = "Pellet!!!";
             this.score++;
         }
+        else if(other.gameObject.tag.Equals("Enemy"))
+        {
+            print("chomp - enemy!");
+            if(CORE.getMunchMode() == true)
+            {
+                pinkGhostAgent = null;
+                pinkGhost = null;
+                this.score += 100;
+            }
+        }
+        
     }
     
 //    public void incrimentScore()
@@ -56,7 +67,10 @@ public class PacMacScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.pinkGhostAgent.SetDestination(this.gameObject.transform.position);
+        if(this.pinkGhostAgent != null)
+        {
+            this.pinkGhostAgent.SetDestination(this.gameObject.transform.position);
+        }
         this.theScoreTextMesh.text = "Score: " + this.score;
 
         if (goForward)
